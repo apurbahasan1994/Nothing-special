@@ -1,0 +1,334 @@
+/* selecting */
+
+
+#products{}
+.product{}
+
+a[target]{
+   color: red; 
+}
+
+a[href="www.google.com"]{
+    color:green; 
+ }
+
+ /* selects all anchor elements with href starts with https */
+ a[href^="https"]{
+    color:yellow; 
+ }
+ /* selects all anchor elements with href ends with a given value */
+ a[href$=".com"]{
+    color:yellow; 
+ }
+/* multiple condintions  */
+a[href^="https"] [href$=".com"]{
+    color:yellow; 
+ }
+
+
+
+/* Relation selectors */
+
+/* descendant selector all p inside of product childrens and children of children */
+#products p{
+    color:orange
+}
+/* immidiate child the first p */
+#products > p{
+    color:orange
+}
+
+/* sibling elemet that comes right after it */
+#products > p + article{
+    color: green;
+}
+/*all sibling elemet that comes right after it */
+#products > p ~ article{
+    color: green;
+}
+
+
+
+/* psudo class selectors */
+
+article:first-child{
+    font-size: 18px;
+}
+/* first occurance of elements of diff types */
+article:first-of-type{
+    font-size: 18px;
+}
+
+/* last child of article whigh is a p */
+article p:last-child{
+    font-size: 18px;
+}
+
+
+ul li:nth-child(odd){
+    font-size:13px
+}
+
+a:link,a:visited{
+
+}
+
+a:hover, a:focus{
+    /* always use them togeather */
+}
+
+
+
+/* psudo elements  selectors */
+/* to style a part of an element  */
+/* first letter of the paragraph */
+p::first-letter{
+    color:green
+}
+p::first-line{
+    color:green
+}
+::selection{
+    color:green
+}
+p::before{
+    content:'....'
+}
+p::after{
+    content:'....'
+}
+
+
+/* selectors specificity */
+/* 1.Id
+2. class and attribute selectors
+3. element selectors */
+
+
+
+/* colors */
+
+p {
+    /* color:rgb(),
+    color:rgba(), */
+    /* background-color:hsl(hue, saturation, lightness)
+    background-color:hsla(hue, saturation, lightness) */
+
+}
+
+/* gradients == are typivally images */
+P{
+    height:200px;
+    /* by deafalt the direction is top to bottom
+    to right ----> starts at left and goes the right
+    can selecet the corners bottom left to right--> to bottom right
+    degree --> 45deg
+    %==> yellow 30%
+    */
+    background:linear-gradient(dodgerblue,yellow);
+    background:radial-gradient(circle,white,yellow)
+}
+
+/* measurements units */
+/* absolute units */
+/* px */
+
+/* 
+relative units ---> relative to something else
+% ----> relative to the size of its parent container
+
+vw, vh
+
+em,rem-- -> relative to font size
+
+*/
+
+/* grid */
+
+.container{
+    /* 3/2 grid */
+    display:grid;
+    grid-template-rows: repeat(3,fr);
+    grid-template-columns:repeat(2,fr);
+    /* or
+    grid-template:repeat(3,100px)/repeat(2,100px)
+     */
+    border: 1px solid black;
+    /* aliging items along the x axis */
+    justify-items: center ;
+    /* aliging items along the y axis */
+    align-items: center;
+    /* aliginig the grid itself to x axis */
+    justify-content: center;
+    /* aliginig the grid itself to y axis */
+    align-content: center;
+    /* gap */
+    row-gap: 5px;
+    column-gap: 5px;
+    /* or gap: 10px 10px */
+
+
+}
+.box{
+    width:5rem;
+    height: 5rem;
+    background:gold;
+     /* placing items
+    grid-row
+    grid-column
+    grid-area
+    */
+}
+.box1{
+    /* -1 means the last column */
+    /* grid-column:1/span 2   spans 2 columns */
+    grid-column:1/-1; 
+}
+
+/* formating text
+text-align
+text-indent
+text-decoration
+text-transform
+white-space
+column-*
+direction
+etc...
+*/
+/* image types and formats 
+
+image types: raster images, vector images
+
+raster images: came from cameras and scanners
+formats: jpg , png, gif , etc
+more pixels=larger the image size
+
+vector images: created with illustrator (software)
+format:svg
+looks sharp at any size
+
+
+*/
+
+/*
+content images
+background images:
+background or background-image: url()
+background-repeat:no-repeat/repeat-x,repeat-y
+background-postition:100px 100px;
+background-size:width/height 200px 200px/cover,contain
+height:100vh;
+background-attachment:fixed-->background is fixed to the viewport
+
+
+css sprites: 
+download all the images in a single file using a tool for performance
+dont use it all time 
+ */
+ /* filters to our images 
+ grayscale, blur, contrast, brightness, saturation etc
+
+ .meal{
+    filter:grayscale(70%) blur(3px) 
+ }
+ 
+ */
+ /* resulution
+
+ physical reolution 960X640 => actual number  of pixels in the device
+
+ Logiacl resolutin 480 X 320 => how they behave
+
+ css is always based on the logical resolution
+
+ divice pixel ratio(dpr) physical/logical
+
+ Iphone 4 has dpr of 2
+
+ high density screen dpr > 1; (more physical pixel than logival pixel)
+ 
+ <img
+ only for fixed sized images
+
+ src="images/meal.jpg
+ srcset="images/meal.jpd 1x, images/meal@2x.jpg 2x
+ , images/meal@3x.jpg 3x"
+ 
+ />
+
+ let  the browser pick the best resolution 
+ bcz we cant provide each device size image
+<img
+ 
+
+ src="images/meal.jpg
+ srcset="images/meal.jpd 400w, images/meal@2x.jpg 800w
+ , images/meal@3x.jpg 1200w"
+
+ sizes="
+
+ (max-width:500px)100vw,
+ (max-width:700px)50vw,
+ 33vw
+ "
+ 
+ />
+
+ responsivebreakpoints.com
+
+
+ webp image
+
+ <picture>
+ <source type="image/webp" srcset="images/meal.webp 1x">
+ <source type="image/webp" srcset="images/meal.jpg 1x">
+ <img src="images/meal.jpg/>
+
+
+ </pictire>
+
+
+  <picture>
+ <source media="(max-width:550px)" type="image/webp" srcset="images/meal.webp 1x">
+ <source min="(max-width:501px)" type="image/webp" srcset="images/meal.jpg 1x">
+ <img src="images/meal.jpg/>
+
+
+ </pictire>
+ 
+ 
+ */
+
+ /* 
+
+ cass variables
+
+ :root{
+
+    --primary-color:ffff,
+    --border-radius: 10px
+
+ }---> the html elememt
+
+ using variables
+ background:var(--primary-color)
+
+ 
+ */
+/* 
+
+BEM --> Block element modifier
+
+
+<div class="card card--popular">
+<header class="card__header"></header>
+<div class="card__body">
+<button class="btn> </button>
+</div>
+</div>
+
+
+
+
+
+*/

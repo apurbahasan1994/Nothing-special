@@ -1,0 +1,115 @@
+//Dom: Document object model.
+// The browser actully exposes functionality to let js 
+interact with the rendered html code. (this is called the dom).
+//Dom is object represatation of the rendered html code.
+
+--- The browser has two build in global object Dom is one of them.
+which gives you access of all the way to interacting with the 
+rendered html page.
+
+--- document and Window..
+
+1. document --> root dom node.
+provides access to element querying, Dom contents etc.
+
+
+
+2.Window is the top most object made available to us by javascript 
+in the browser. This refrects the active browser window or tab
+
+act as global entry point / storage for scripts. It gives access to
+all the features that the browser wants to expose.
+
+
+---------------------- Dom -----------------------
+
+The Browser parses the html code and make a view of it for verified_userbut also 
+create object represantation of that. 
+
+<html>
+</html>
+There will be created a html node for this(elementNode).
+The browser creates a tree of nodes. Html is the top node.
+<head> and <body> is its child node.
+Text elements are also cretaed as node called TextNodes.
+
+//===> $0 always gives acces to the lase element we selected in the
+elements tab.(chrome dev tools).
+
+
+-------- querying elememnts--------
+1. Single elememnt
+queryselector, getElementById 
+
+2. Multiple elements----> returns nodelist
+querySelectorAll, getElementByTagName 
+
+
+ClientHeight===height of the element
+clientWidth===== width of the element
+innerHtml=== nested html code
+
+//traversing the  dom
+
+children, descendants, parents, ancestors
+
+
+<----------------------------------------------------->
+child: direct child node.
+
+childNodes(all child nodes including text nodes),
+children (only child elememnt),
+querySelector
+getElementByClassName ... etc
+firstChild,
+firstElementChild
+lastChild,
+lastElementChild 
+
+siblings:
+previusSibling
+previousElemntSibling
+nextSibling
+nextElemntSibling
+<----------------------------------------------------->
+descends: child and child of childs
+
+parent: direct parent ---->
+
+parentNode(selects ans parent node),
+parentElement(selects only a node which is also an element),
+closet(can look up any direct parent but also any ancestor thtat matches an css query)
+
+
+ancestor:direct parent of parent of parents
+
+
+//creating elememnt:
+Html String ----> innerHtml ---> add(render)Html string
+                  insertAdjacentHtml() ---> next to existing content without replacing--> add(render) html string in specific posiotin 
+
+createElement() ---> appendChild()/append() ---> append new Dom element/node
+                     prepend(),before(),afer(),insertAfter()
+                     replaceChild(),replaceWith()
+
+
+innerHtml: Elements rerender when adding new elements with this.
+this is one of the downsides of that. performance issue.
+its good when want to change the full innerhtml but not good if want to
+just add something;
+----better----
+insertAdjacentHtml(posiotin,stringElememnt)===>
+beforeBegin=Before the elememnt itself.
+afterBegin="before the firstChild
+beforeEnd=after the last child.
+afterEnd=after the element.
+
+<-----downsides we do not hove any aceess to the newly cretaed content with above these methods----->
+
+Solution:
+document.createElement('tagName');
+
+
+----------------------cloning a node--------------
+const clonedNode=element.cloneNode(boleean==deepclone);
+

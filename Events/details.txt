@@ -1,0 +1,37 @@
+-----Events-----
+
+run code upon certain events
+
+--> node js ---> on('name',event=>{})
+--> browser ---> addEventListener('name',(event)=>)
+
+<--------- broser events options-------->
+
+                  Event
+
+         MoseEvent      DragEvent    ....
+         coordinates    extra data
+         event target   event target
+
+The events object : 
+
+event bubling ---> dom events ===> bubling and capturing
+
+the capturing phase goes from outside to inside 
+so the thing is if we made a event listener for The
+capturing phase of the parent elements than the browser 
+will check for the event in the parent also for the capturing phase 
+
+
+the bubling phase does the opposite, it goes from the 
+inside to the outside. 
+all events we listen with addEventListener triggers
+in the bubling phase.
+so the childs event listener will trigger first than the parents
+event listener will trigger second
+
+---- to stop the other event listeners on the same element 
+event.stopImmidiatePropagation()
+
+
+--- event delegation

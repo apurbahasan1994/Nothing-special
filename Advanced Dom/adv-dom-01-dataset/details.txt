@@ -1,0 +1,11 @@
+element.getBoundingRect();
+
+element.offsetTop---> postion of the box in the coordinate system;
+element.offsetLeft;
+element.clientTop---> postion of the content from the box ;
+element.clientLeft;
+element.offsetWidth;
+element.offsetHeight;
+
+element.scrollHeight;--> get the height of scollable content;
+element.scrollTop->how much scrolled in the box

@@ -1,0 +1,26 @@
+-------- selectors------
+type, id, class, attribute
+
+type: body, h1, p, section
+
+
+------------- box model ----------
+//trbl
+//vertical and horizontal ---- with two values
+
+1.margin
+2.border 
+3.padding 
+4.content
+
+
+www.flaticon.com
+
+
+-------css best practice----------
+
+
+kabab case : nav-bar{}
+camak case : navBar{}
+pascal case : NavBar{}
+  
